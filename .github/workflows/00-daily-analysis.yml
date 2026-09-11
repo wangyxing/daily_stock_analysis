@@ -65,6 +65,8 @@ jobs:
       
       - name: 执行股票分析
         env:
+
+          STOCK_LIST: ${{ github.event.schedule == '30 21 * * 1-5' && vars.US_STOCK_LIST || vars.A_STOCK_LIST }}
           # ==========================================
           # AI 配置
           # ==========================================
