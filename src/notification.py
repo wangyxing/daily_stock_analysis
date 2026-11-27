@@ -944,7 +944,7 @@ class NotificationService(
             for r in sorted_results:
                 signal_text, emoji, _ = self._get_signal_level(r)
                 report_lines.append(
-                    f"{emoji} **{self._get_display_name(r, report_language)}({r.code})**: "
+                    f"🟧 {emoji} **【{self._get_display_name(r, report_language)}({r.code})】**: "
                     f"{signal_text} | "
                     f"{labels['score_label']} {r.sentiment_score} | "
                     f"{localize_trend_prediction(r.trend_prediction, report_language)}"
@@ -960,7 +960,7 @@ class NotificationService(
                 confidence_stars = result.get_confidence_stars() if hasattr(result, 'get_confidence_stars') else '⭐⭐'
 
                 report_lines.extend([
-                    f"### {emoji} {self._get_display_name(result, report_language)} ({result.code})",
+                    f"### 🟧🔥 {emoji} 【**{self._get_display_name(result, report_language)} ({result.code})**】",
                     "",
                     f"**{labels['action_advice_label']}：{signal_text}** | "
                     f"**{labels['score_label']}：{result.sentiment_score}** | "
